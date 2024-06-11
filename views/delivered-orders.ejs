@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivered Orders</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-image: url("/0b016db576f74b7f7b94d958ba618f79.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .card {
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Delivered Orders</h1>
+        <% if (deliveredOrders.length > 0) { %>
+            <% deliveredOrders.forEach(order => { %>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Order Information</h2>
+                        <ul class="list-unstyled">
+                            <li><strong>Date:</strong> <%= order.date %></li>
+                            <li><strong>Total Amount:</strong> <%= order.total_amount %></li>
+                            <li><strong>Promotion Discount:</strong> <%= order.promotion_discount %></li>
+                            <li><strong>Special Instructions:</strong> <%= order.special_instructions %></li>
+                            <li><strong>Delivery Charge:</strong> <%= order.delivery_charge %></li>
+                            <li><strong>Order Time:</strong> <%= order.order_time %></li>
+                            <li><strong>Delivery Time:</strong> <%= order.delivery_time %></li>
+                            <li><strong>Delivery Location:</strong> <%= order.delivery_location %></li>
+                            <li><strong>Status:</strong> <%= order.status %></li>
+                        </ul>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No delivered orders found.</p>
+        <% } %>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

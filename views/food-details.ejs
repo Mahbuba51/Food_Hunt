@@ -1,0 +1,200 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url("/images (7).jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/restaurant/all-restaurants-customer"> <!-- Link to the home page -->
+        <i class="fas fa-home "></i> <!-- Home icon -->
+        <strong>Home</strong>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><%= food.name %></h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Base Price:</strong> <%= food.base_price %></p>
+        <p><strong>Description:</strong> <%= food.description %></p>
+        <p><strong>Variation:</strong> <%= food.variation %></p>
+        <p><strong>Key Ingredient:</strong> <%= food.key_ingredient %></p>
+        <p><strong>Nutritional Information:</strong> <%= food.nutritional_information %></p>
+      </div>
+      <div class="col-md-6">
+        <h2>Food Type</h2>
+        <ul>
+          <% foodType.forEach(foodTypeItem => { %>
+            <li><%= foodTypeItem.type_name %></li>
+          <% }); %>
+        </ul>
+        <h2>Discount</h2>
+        <ul>
+          <% discounts.forEach(discount => { %>
+            <li><%= discount.food_discount_percentage %>% off</li>
+          <% }); %>
+        </ul>
+       
+        <form action="/order/add-to-cart" method="POST">
+          <input type="hidden" name="food" value="<%= JSON.stringify(food) %>">
+          <input type="hidden" name="discount" value='<%= JSON.stringify(discounts) %>'>
+         <button type="submit" class="btn btn-primary" style="background-color:blue; border-color:bisque;">Add to Cart</button>
+
+          <a href="/order/cart" class="btn btn-success">View Cart</a>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>   
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><%= food.name %></h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Base Price:</strong> <%= food.base_price %></p>
+        <p><strong>Description:</strong> <%= food.description %></p>
+        <p><strong>Variation:</strong> <%= food.variation %></p>
+        <p><strong>Key Ingredient:</strong> <%= food.key_ingredient %></p>
+        <p><strong>Nutritional Information:</strong> <%= food.nutritional_information %></p>
+      </div>
+      <div class="col-md-6">
+        <h2>Food Type</h2>
+        <ul>
+          <% foodType.forEach(foodTypeItem => { %>
+            <li><%= foodTypeItem.type_name %></li>
+          <% }); %>
+        </ul>
+        <h2>Discount</h2>
+        <ul>
+          <% discounts.forEach(discount => { %>
+            <li><%= discount.food_discount_percentage %>% off, use code: <%= discount.food_discount_code %></li>
+          <% }); %>
+        </ul>
+       
+        <form id="addToCartForm" action="/order/add-to-cart" method="POST">
+          <input type="hidden" name="food" value="<%= JSON.stringify(food) %>">
+          <input type="hidden" name="discount" value='<%= JSON.stringify(discounts) %>'>
+          <button type="submit" class="btn btn-primary" style="background-color:blue; border-color:bisque;">Add to Cart</button>
+          <a href="/order/cart" class="btn btn-success">View Cart</a>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Add event listener for the form submission
+    document.getElementById('addToCartForm').addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Show the alert message
+      alert('Item added to cart successfully');
+    
+      window.location.href = "/order/cart";
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px; /* Added some padding for better spacing */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><%= food.name %></h1>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Base Price:</strong> <%= food.base_price %></p>
+        <p><strong>Description:</strong> <%= food.description %></p>
+        <p><strong>Variation:</strong> <%= food.variation %></p>
+        <p><strong>Key Ingredient:</strong> <%= food.key_ingredient %></p>
+        <p><strong>Nutritional Information:</strong> <%= food.nutritional_information %></p>
+      </div>
+      <div class="col-md-6">
+        <h2>Food Type</h2>
+        <ul>
+          <% foodType.forEach(foodTypeItem => { %>
+            <li><%= foodTypeItem.type_name %></li>
+          <% }); %>
+        </ul>
+        <h2>Discount</h2>
+        <ul>
+          <% discounts.forEach(discount => { %>
+            <li><%= discount.food_discount_percentage %>% off, use code: <%= discount.food_discount_code %></li>
+          <% }); %>
+        </ul>
+        
+         <form id="addToCartForm" action="/order/add-to-cart" method="POST"
+        
+          <input type="hidden" name="food" value="<%= JSON.stringify(food) %>">
+          <input type="hidden" name="discount" value='<%= JSON.stringify(discounts) %>'>
+          <button type="submit" class="btn btn-primary" style="background-color:blue; border-color:bisque;">Add to Cart</button>
+          <a href="/order/cart" class="btn btn-success">View Cart</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Add event listener for the form submission
+    document.getElementById('addToCartForm').addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      
+      alert('Item added to cart successfully');
+      // Submit the form programmatically
+      this.submit();
+    });
+  </script>
+</body>
+</html> -->

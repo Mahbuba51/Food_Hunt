@@ -1,0 +1,80 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - FoodHunt</title>
+    <style>
+       
+        body {
+            
+            background: url("/ffa860afd4a78ec8500e0a4d71ef4375.jpg") ;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: yellowgreen;
+    color:blanchedalmond;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:gray;
+}
+
+    </style>
+    
+   
+</head>
+<body>
+    <header>
+   </header>
+     <section class="main-content" >
+        <h2 style="text-align: center;">Welcome to FOOD HUNT</h2>
+        <form action="/customer/login" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required><br>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br>
+      
+          <button type="submit">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">
+            Don't have an account? <a href='/customer/addCustomer'>Sign up here</a>
+        </p>
+    </section> 
+    
+
+   
+</body>
+</html>  

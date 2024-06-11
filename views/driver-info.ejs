@@ -1,0 +1,182 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom styles here */
+        body {
+            padding: 20px;
+            background-image: url("/0b016db576f74b7f7b94d958ba618f79.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .driver-image {
+            max-width: 250px; /* Adjust image size as needed */
+            float: left; /* Float the image to the left */
+            margin-right: 10px; /* Add margin to the right of the image */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Driver Information</h1>
+        <img src="/Screenshot 2024-02-22 112331.png" alt="Driver Image" class="driver-image">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"><strong>Driver Name:</strong> <%= driver.name %></p>
+                <p class="card-text"><strong>Contact Number:</strong> <%= driver.contact_no %></p>
+                <p class="card-text"><strong>Driving License Number:</strong> <%= driver.driving_license_no %></p>
+                <p class="card-text"><strong>Monthly Payment:</strong> <%= driver.monthly_payment %></p>
+            </div>
+        </div>
+        <a href="/driver/existing-orders" class="btn btn-primary">Existing Orders</a>
+        <a href="/driver/delivered-orders" class="btn btn-primary">Delivered Orders</a>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom styles here */
+        body {
+            padding: 20px;
+            background-image: url("/0b016db576f74b7f7b94d958ba618f79.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+        button {
+            display: block;
+            width: 100px;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .driver-image {
+            max-width: 250px; /* Adjust image size as needed */
+            float: left; /* Float the image to the left */
+            margin-right: 10px; /* Add margin to the right of the image */
+        }
+        .update-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Driver Information</h1>
+        <img src="/Screenshot 2024-02-22 112331.png" alt="Driver Image" class="driver-image">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"><strong>Driver Name:</strong> <%= driver.name %> 
+                    <button class="btn btn-primary update-btn" data-target="name">Update</button>
+                </p>
+                <div class="update-form" id="name-form">
+                    <form action="/driver/update-name" method="POST">
+                        <input type="text" name="name" placeholder="Enter new name">
+                        <input type="hidden" name="id" value="<%=driver.id %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+
+                <p class="card-text"><strong>Contact Number:</strong> <%= driver.contact_no %> 
+                    <button class="btn btn-primary update-btn" data-target="contact-no">Update</button>
+                </p>
+                <div class="update-form" id="contact-no-form">
+                    <form action="/driver/update-contact-no" method="POST">
+                        <input type="text" name="contact_no" placeholder="Enter new contact number">
+                        <input type="hidden" name="id" value="<%=driver.id %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+
+                <p class="card-text"><strong>Driving License Number:</strong> <%= driver.driving_license_no %> 
+                    <button class="btn btn-primary update-btn" data-target="license-no">Update</button>
+                </p>
+                <div class="update-form" id="license-no-form">
+                    <form action="/driver/update-license-no" method="POST">
+                        <input type="text" name="license_no" placeholder="Enter new license number">
+                        <input type="hidden" name="id" value="<%=driver.id %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+
+                <p class="card-text"><strong>Monthly Payment:</strong> <%= driver.monthly_payment %></p>
+                <p class="card-text"><strong>Password:</strong> ******** 
+                    <button class="btn btn-primary update-btn" data-target="password">Change</button>
+                </p>
+                <!-- Update form for password -->
+                <div class="update-form" id="password-form">
+                    <form action="/driver/update-password" method="POST">
+                        <input type="password" name="password" placeholder="Enter new password">
+                        <input type="hidden" name="id" value="<%=driver.id %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        <a href="/driver/existing-orders" class="btn btn-primary">Existing Orders</a>
+        <a href="/driver/delivered-orders" class="btn btn-primary">Delivered Orders</a>
+    </div>
+
+    <script>
+        // Script to toggle update forms
+        const updateButtons = document.querySelectorAll('.update-btn');
+        updateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.dataset.target;
+                const form = document.getElementById(`${target}-form`);
+                if (form) {
+                    // Hide all forms first
+                    document.querySelectorAll('.update-form').forEach(form => {
+                        form.style.display = 'none';
+                    });
+                    // Show the corresponding form
+                    form.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

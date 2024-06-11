@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing Orders</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-image: url("/0b016db576f74b7f7b94d958ba618f79.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .card {
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Existing Orders</h1>
+        <% if (existingOrders.length > 0) { %>
+            <% existingOrders.forEach(order => { %>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Order Information</h2>
+                        <ul class="list-unstyled">
+                            <li><strong>Date:</strong> <%= order.date %></li>
+                            <li><strong>Total Amount:</strong> <%= order.total_amount %></li>
+                            <li><strong>Promotion Discount:</strong> <%= order.promotion_discount %></li>
+                            <li><strong>Special Instructions:</strong> <%= order.special_instructions %></li>
+                            <li><strong>Delivery Charge:</strong> <%= order.delivery_charge %></li>
+                            <li><strong>Order Time:</strong> <%= order.order_time %></li>
+                            <li><strong>Delivery Time:</strong> <%= order.delivery_time %></li>
+                            <li><strong>Delivery Location:</strong> <%= order.delivery_location %></li>
+                            <li><strong>Status:</strong> <%= order.status %></li>
+                        </ul>
+                        <h2 class="mt-4">Update Order Status</h2>
+                        <form action="/driver/updateOrderStatus" method="POST">
+                            <input type="hidden" name="orderId" value="<%= order.id %>">
+                            <input type="hidden" name="driverId" value="<%= driver.id %>">
+                            <div class="form-group">
+                                <label for="deliveryTime">Delivery Time:</label>
+                                <input type="time" class="form-control" id="deliveryTime" name="deliveryTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select class="form-control" id="status" name="status" required>
+                                    <option value="Pending">Pending</option>
+                                    <option value="In Transit">In Transit</option>
+                                    <option value="Delivered">Delivered</option>
+                                    <option value="Order Confirmed">Order Confirmed</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Status</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No existing orders found.</p>
+        <% } %>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

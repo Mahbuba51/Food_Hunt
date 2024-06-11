@@ -1,0 +1,202 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: url("/images (8).jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="profile-card">
+                    <h1 class="mb-4">Restaurant Profile</h1>
+                    <div class="mb-3">
+                        <strong>Name:</strong> <%= restaurant.name %>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Contact Number:</strong> <%= restaurant.contact_no %>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Location:</strong> <%= restaurant.location %>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Email:</strong> <%= restaurant.email %>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Opening Time:</strong> <%= restaurant.opening_time %>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Closing Time:</strong> <%= restaurant.closing_time %>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: url("/images (8).jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-form {
+            display: none;
+        }
+        .btn-update {
+            background-color:burlywood;
+            border-color: #28a745;
+        }
+
+        .btn-update:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="profile-card">
+                    <h1 class="mb-4">Restaurant Profile</h1>
+                    <% if (photoUrl) { %>
+                        <div class="mb-3">
+                            <img src="<%= photoUrl %>" alt="Restaurant Photo" style="max-width: 100%;">
+                        </div>
+                    <% } %>
+                    <div class="mb-3">
+                        <strong>Name:</strong> <%= restaurant.name %>
+                        <button class="btn btn-primary update-btn" data-target="name">Update</button>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Contact Number:</strong> <%= restaurant.contact_no %>
+                        <button class="btn btn-primary update-btn" data-target="contact-no">Update</button>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Location:</strong> <%= restaurant.location %>
+                        <button class="btn btn-primary update-btn" data-target="location">Update</button>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Email:</strong> <%= restaurant.email %>
+                        <button class="btn btn-primary update-btn" data-target="email">Update</button>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Opening Time:</strong> <%= restaurant.opening_time %>
+                        <button class="btn btn-primary update-btn" data-target="opening-time">Update</button>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Closing Time:</strong> <%= restaurant.closing_time %>
+                        <button class="btn btn-primary update-btn" data-target="closing-time">Update</button>
+                    </div>
+                    <!-- Add any other restaurant details you want to display -->
+
+                    <!-- Update Profile Forms -->
+                    <form class="update-form" id="name-form" action="/restaurant/update-name-res" method="POST">
+                        <input type="text" name="new_name" placeholder="Enter new name">
+                        <input type="hidden" name="email" value="<%= restaurant.email %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+
+                    <form class="update-form" id="contact-no-form" action="/restaurant/update-contact-no-res" method="POST">
+                        <input type="text" name="new_contact_no" placeholder="Enter new contact number">
+                        <input type="hidden" name="email" value="<%= restaurant.email %>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+
+                    <form class="update-form" id="location-form" action="/restaurant/update-location-res" method="POST">
+                        <input type="text" name="new_location" placeholder="Enter new location">
+                        <input type="hidden" name="email" value="<%= restaurant.email%>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+
+                    <form class="update-form" id="email-form" action="/restaurant/update-email-res" method="POST">
+                        <input type="email" name="new_email" placeholder="Enter new email">
+                        <input type="hidden" name="email" value="<%= restaurant.email%>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+
+                    <form class="update-form" id="opening-time-form" action="/restaurant/update-opening-time-res" method="POST">
+                        <input type="time" name="opening_time" placeholder="Enter new opening time">
+                        <input type="hidden" name="email" value="<%= restaurant.email%>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+
+                    <form class="update-form" id="closing-time-form" action="/restaurant/update-closing-time-res" method="POST">
+                        <input type="time" name="closing_time" placeholder="Enter new closing time">
+                        <input type="hidden" name="email" value="<%= restaurant.email%>">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script to toggle update forms
+        const updateButtons = document.querySelectorAll('.update-btn');
+        updateButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.dataset.target;
+                const form = document.getElementById(`${target}-form`);
+                if (form) {
+                    // Hide all forms first
+                    document.querySelectorAll('.update-form').forEach(form => {
+                        form.style.display = 'none';
+                    });
+                    // Show the corresponding form
+                    form.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

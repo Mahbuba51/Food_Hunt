@@ -1,0 +1,161 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Restaurants</title>
+</head>
+<body>
+  <h1>Search Restaurant</h1>
+  <form action="/search-restaurants" method="get">
+    <label for="search">Search by Name:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+  </form>
+  <h1>Search Food By Name</h1>
+  <form action="/search-food" method="get">
+    <label for="foodName">Search Food by Name:</label>
+    <input type="text" id="foodName" name="foodName" required>
+    <button type="submit">Search</button>
+  </form>
+    <h1>Restaurant with Discount</h1>
+    <a href ="/restaurant-with-discount">Restaurant with Discount</a>
+  <h1>All Restaurants</h1>
+  <ul>
+    <% restaurants.forEach(restaurant => { %>
+      <li><a href="/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a></li>
+    <% }); %>
+  </ul>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Restaurants</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Search Restaurant</h1>
+    <form action="/search-restaurants" method="get">
+      <div class="form-group">
+       
+        <input type="text" class="form-control" id="search" name="search">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h1>Search Food By Name</h1>
+    <form action="/search-food" method="get">
+      <div class="form-group">
+        
+        <input type="text" class="form-control" id="foodName" name="foodName" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h1>Restaurant with Discount</h1>
+    <a href="/restaurant-with-discount" class="btn btn-success">Restaurant with Discount</a>
+
+    <h1>All Restaurants</h1>
+    <ul class="list-group">
+      <% restaurants.forEach(restaurant => { %>
+        <li class="list-group-item"><a href="/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a></li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Restaurants</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url("/ffa860afd4a78ec8500e0a4d71ef4375.jpg"); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+      padding: 0;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Search Restaurant</h1>
+    <form action="/restaurant/search-restaurants" method="get">
+      <div class="form-group">
+        
+        <input type="text" class="form-control" id="search" name="search">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h1>Search Food By Name</h1>
+    <form action="/restaurant/search-food" method="get">
+      <div class="form-group">
+       
+        <input type="text" class="form-control" id="foodName" name="foodName" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h1>All Restaurants</h1>
+
+    <!-- <div class="row">
+      <% restaurants.forEach(restaurant => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+           
+            <img src="https://source.unsplash.com/1600x900/?food" class="card-img-top" alt="<%= restaurant.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= restaurant.name %></h5>
+              <p class="card-text">Some description or details about the restaurant.</p>
+              <a href="/restaurant/<%= restaurant.id %>" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div> -->
+    <div class="row">
+      <% restaurants.forEach(restaurant => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <!-- <img src="https://picsum.photos/400/300?category=food&random=<%= Math.random() %>" class="card-img-top" alt="<%= restaurant.name %>"> -->
+            <img src="https://source.unsplash.com/400x300/?food" class="card-img-top" alt="<%= restaurant.name %>">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= restaurant.name %></h5>
+              <p class="card-text">Hello from <%= restaurant.name %></p>
+              <a href="/restaurant/restaurant/<%= restaurant.id %>" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- Add Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

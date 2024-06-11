@@ -1,0 +1,145 @@
+<!-- Display order details -->
+ <!-- <h1>Order Review</h1>
+<form action="/order/confirm" method="POST">
+  <ul>
+    <% let totalAmount = 0; %>
+    <% cartItems.forEach(item => { %>
+      <li>
+        Food Name: <%= item.food.name %><br>
+        Base Price: <%= item.food.base_price %><br>
+        Discount Amount: <%= item.discounted_price %><br>
+        <% totalAmount = (item.food.base_price - item.discounted_price); %>
+        Price: <%= totalAmount %> <br>
+        <label for="servings_<%= item.food.id %>">Number of Servings:</label>
+        <input type="number" id="servings_<%= item.food.id %>" name="servings_<%= item.food.id %>" value="1" min="1"><br>
+
+      </li>
+    <% }); %>
+  </ul>
+  Delivery Charge: 20
+
+  <div>
+    <input type="hidden" name="total_amount" value="<%= totalAmount %>">
+    <label for="specialInstructions">Special Instructions:</label><br>
+    <textarea id="specialInstructions" name="specialInstructions" rows="4" cols="50"></textarea>
+  </div>
+  <div>
+    <label for="deliveryLocation">Delivery Location:</label><br>
+    <input type="text" id="deliveryLocation" name="deliveryLocation">
+  </div>
+
+  
+  <div>
+    <label for="paymentType">Payment Type:</label><br>
+    <select name="paymentType" id="paymentType">
+      <option value="cash">Cash</option>
+      <option value="credit">Credit Card</option>
+      <option value="mobileBanking">Mobile Banking</option>
+    </select>
+  </div>
+  <div>
+    <label for="discountCode">Discount Code:</label><br>
+    <input type="text" id="discountCode" name="discountCode"><br>
+  </div>
+  <button type="submit">Confirm Order</button>
+</form> -->
+<!-- Display order details -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Review</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/pexels-photo-268415.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #333; /* Dark text color */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        h1,
+        h5 {
+            color: #ffc107; /* Yellow color for headings */
+        }
+
+        label {
+            color: #333; /* Dark text color for labels */
+        }
+
+        .btn-primary {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff9800;
+            border-color: #ff9800;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="mb-4">Order Review</h1>
+                <form action="/order/confirm" method="POST">
+                    <ul class="list-group mb-4">
+                        <% cartItems.forEach(item => { %>
+                        <li class="list-group-item">
+                            <h5 class="mb-3">Food Name: <%= item.food.name %></h5>
+                            <p class="mb-1">Base Price: <%= item.food.base_price %></p>
+                            <p class="mb-1">Discount Amount: <%= item.discounted_price %></p>
+                            <% totalAmount = (item.food.base_price - item.discounted_price); %>
+                            <p class="mb-1">Price: <%= totalAmount %></p>
+                            <label for="servings_<%= item.food.id %>">Number of Servings:</label>
+                            <input type="number" id="servings_<%= item.food.id %>"
+                                name="servings_<%= item.food.id %>" value="1" min="1"><br>
+                        </li>
+                        <% }); %>
+                    </ul>
+                    <p class="mb-3">Delivery Charge: 20</p>
+                    <div class="mb-3">
+                        <input type="hidden" name="total_amount" value="<%= totalAmount %>">
+                        <label for="specialInstructions" class="form-label">Special Instructions:</label>
+                        <textarea class="form-control" id="specialInstructions" name="specialInstructions"
+                            rows="4" cols="50"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="deliveryLocation" class="form-label">Delivery Location:</label>
+                        <input type="text" class="form-control" id="deliveryLocation" name="deliveryLocation">
+                    </div>
+                    <div class="mb-3">
+                        <label for="paymentType" class="form-label">Payment Type:</label>
+                        <select class="form-select" name="paymentType" id="paymentType">
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="mobileBanking">Mobile Banking</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="discountCode" class="form-label">Discount Code:</label>
+                        <input type="text" class="form-control" id="discountCode" name="discountCode">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional, if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

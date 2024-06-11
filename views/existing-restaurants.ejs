@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing Restaurants</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add any custom styles here */
+        body {
+            padding: 20px;
+            background-image: url("/0b016db576f74b7f7b94d958ba618f79.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mb-4">Existing Restaurants</h2>
+        <ul class="list-group">
+            <% restaurants.forEach(restaurant => { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <%= restaurant.name %> - <%= restaurant.contact_no %>
+                </div>
+                <div>
+                    <form action="/admin/delete-restaurant" method="POST" style="display: inline;">
+                        <input type="hidden" name="restaurantId" value="<%= restaurant.id %>">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

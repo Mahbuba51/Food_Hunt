@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Search Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body{
+            background-image: url("/images (7).jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mt-5">Restaurant Search</h2>
+    <form action="/restaurant/advanced-search" method="POST" class="mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="foodName" class="form-label">Food Name</label>
+                <input type="text" name="foodName" id="foodName" class="form-control" placeholder="Enter Food Name">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label for="restaurantName" class="form-label">Restaurant Name</label>
+                <input type="text" name="restaurantName" id="restaurantName" class="form-control" placeholder="Enter Restaurant Name">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label for="foodType" class="form-label">Food Type</label>
+                <input type="text" name="foodType" id="foodType" class="form-control" placeholder="Enter Food Type">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label for="minScore" class="form-label">Minimum Average Score</label>
+                <input type="number" name="minScore" id="minScore" class="form-control" placeholder="Enter Minimum Average Score">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

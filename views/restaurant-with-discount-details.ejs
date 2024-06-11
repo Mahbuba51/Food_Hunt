@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant with Discounts Details</title>
+</head>
+<body>
+  <h1><%= restaurant.name %></h1>
+  <p>Contact: <%= restaurant.contact_no %></p>
+  <p>Email: <%= restaurant.email %></p>
+  <p>Location: <%= restaurant.location %></p>
+
+  <h2>Discounted Food Items</h2>
+  <ul>
+    <% discountedFoods.forEach(food => { %>
+      <li><%= food.name %> - Discount: <%= food.discount_percentage %>%</li>
+    <% }); %>
+  </ul>
+</body>
+</html>

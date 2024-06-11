@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Discounts</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            background-image: url("/images (7).jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .discount-item {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-position: center;
+        }
+        .discount-item p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Discounts</h1>
+        <% discounts.forEach(discount => { %>
+            <div class="discount-item">
+                <p>Discount Percentage: <%= discount.percentage %>%</p>
+                <p>Max Discount: <%= discount.max_discount %></p>
+                <form action="/restaurant/delete-restaurant-discount" method="POST">
+                    <input type="hidden" name="discountId" value="<%= discount.discount_id %>">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+        <% if (typeof success !=='undefined' && success==='Restaurant-discount-deleted' ) { %>
+            <p style="color: green;">Restaurant discount deleted successfully!</p>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

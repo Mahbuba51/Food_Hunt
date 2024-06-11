@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Food</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url('/pngtree-taobao-vector-cartoon-healthy-breakfast-knife-and-fork-coffee-bacon-poster-image_130004.jpg'); /* Replace 'your-background-image-url.jpg' with the actual image URL */
+      background-size: cover;
+      background-position: center;
+      color:black; /* Set text color to white for better visibility on a background image */
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value for background transparency */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .list-group-item {
+      background-color: transparent; /* Make list items transparent to blend with the background */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="all-restaurants-customer"> <!-- Link to the home page -->
+        <i class="fas fa-home"></i> <!-- Home icon -->
+        <em>Home</em>
+      </a>
+    </div>
+</nav>
+  <div class="container">
+    <h1>Search Results for "<%= searchQuery %>"</h1>
+    
+    <ul class="list-group">
+      <% foods.forEach(food => { %>
+        <li class="list-group-item">
+          <a href="/restaurant/food-customer/<%= food.id %>"><%= food.name %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Add Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

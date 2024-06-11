@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Options</title>
+</head>
+<body>
+  <h1>Login Options</h1>
+  <p>Choose how you would like to log in:</p>
+  <ul>
+    <li><a href="/customer-login">Customer Login</a></li>
+    <li><a href="/restaurant-login">Restaurant Login</a></li>
+  </ul>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHunt - Login</title>
+    
+    <style>
+         body {
+            background-image: url("ffa860afd4a78ec8500e0a4d71ef4375.jpg"); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+       
+        .main-content {
+            text-align: center;
+            color:brown; 
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color:burlywood; 
+            color:brown; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color:blanchedalmond; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center; color:darksalmon;">Welcome to FoodHunt</h1>
+    </header>
+    <section class="main-content">
+        <h2 style="text-align: center;">Choose Your Role</h2>
+        <button class="btn btn-primary" onclick="window.location.href='/restaurant/login';">Login as Restaurant</button>
+        <br>
+        <button class="btn btn-primary" onclick="window.location.href='/customer/login';">Login as Customer</button>
+        <br>
+        <button class="btn btn-primary" onclick="window.location.href='/admin/login';">Login as Admin</button>
+        <br>
+        <button class="btn btn-primary" onclick="window.location.href='/driver/login';">Login as Driver</button>
+    </section>
+</body>
+</html>

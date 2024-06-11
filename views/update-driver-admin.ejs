@@ -1,0 +1,27 @@
+<!-- views/update-driver.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Driver</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Update Driver</h1>
+        <form action="/admin/update-driver/<%= driver.id %>" method="POST">
+            <p>Update Monthly Payment</p>
+            <label for="newValue">New Value:</label>
+            <input type="text" id="newValue" name="newValue" required><br>
+
+            <button type="submit">Update Driver</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+

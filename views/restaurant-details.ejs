@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px; /* Add some padding at the top */
+            background-image: url("/ffa860afd4a78ec8500e0a4d71ef4375.jpg");
+            background-repeat: no repeat;
+        }
+
+        /* Style for the menu section */
+        .card {
+            margin-bottom: 20px; /* Add some space between cards */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to cards */
+        }
+
+        /* Style for the footer */
+        footer {
+            margin-top: 20px; /* Add some space at the top */
+            text-align: center; /* Center-align text */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+           <a class="navbar-brand" href="/restaurant/restaurant-profile">  
+            <i class="fas fa-home"></i> <!-- Home icon -->
+            <em><%=restaurant.name %></em>
+          </a>
+        </div>
+      </nav>
+    <div class="container">
+        <!-- <h1 class="mt-4"><%= restaurant.name %></h1> -->
+        <p>Contact: <%= restaurant.contact_no %></p>
+        <p>Email: <%= restaurant.email %></p>
+        <p>Location: <%= restaurant.location %></p>
+        <p>Opening Time: <%= restaurant.opening_time %></p>
+        <p>Closing Time: <%= restaurant.closing_time %></p>
+        <a href="/restaurant/orders-exisiting/<%= restaurant.id %>" class="btn btn-primary mb-4">View Exisiting Orders</a>
+        <a href="/restaurant/orders-delivered/<%= restaurant.id %>" class="btn btn-primary mb-4">View Delivered Orders</a>
+        <a href="/restaurant/admin/add-food" class="btn btn-primary mb-4">Add Food Item</a>
+        <a href="/restaurant/restaurant-discount" class="btn btn-primary mb-4">Restaurant Discounts</a>
+        <a href="/restaurant/add-restaurant-discount" class="btn btn-primary mb-4">Add Restaurant Discount</a>
+
+        <h2>Menu</h2>
+
+        <div class="row">
+            <% foods.forEach(food => { %>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="<%= food.picture_url %>" class="card-img-top" alt="<%= food.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= food.name %></h5>
+                        <!-- Redirect to another page to view details of the food item -->
+                        <a href="/restaurant/food/<%= food.id %>" class="btn btn-primary btn-sm mr-2">View Details</a>
+                        <a href="/restaurant/admin/update-food/<%= food.id %>" class="btn btn-primary btn-sm mr-2">Update Food</a>
+                        <!-- Include a form to delete the food item -->
+                        <form action="/restaurant/restaurant/<%= restaurant.id %>/delete-food/<%= food.id %>" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

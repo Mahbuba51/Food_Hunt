@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details with Discount</title>
+</head>
+<body>
+  <h1><%= food.name %></h1>
+  <p>Base Price: <%= food.base_price %></p>
+  <p>Description: <%= food.description %></p>
+  <p>Variation: <%= food.variation %></p>
+  <p>Key Ingredient: <%= food.key_ingredient %></p>
+  <p>Nutritional Information: <%= food.nutritionl_information %></p>
+
+  <h2>Restaurant Information</h2>
+  <p>Restaurant Name: <%= restaurantInfo.restaurant_name %></p>
+  <% if (discount.discount_percentage) { %>
+    <p>Discount Percentage: <%= discount.discount_percentage %> %</p>
+  <% } %>
+</body>
+</html> 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details with Discount</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url("download.jpeg"); /* Replace 'your-background-image-url.jpg' with the actual image URL */
+      background-size: cover;
+      background-position: center;
+      color: #ffffff; /* Set text color to white for better visibility on a background image */
+    }
+
+    .container {
+      max-width: 600px; /* Adjust the maximum width as needed */
+      background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value for background transparency */
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><%= food.name %></h1>
+    <p>Base Price: <%= food.base_price %></p>
+    <p>Description: <%= food.description %></p>
+    <p>Variation: <%= food.variation %></p>
+    <p>Key Ingredient: <%= food.key_ingredient %></p>
+    <p>Nutritional Information: <%= food.nutritionl_information %></p>
+
+    <h2>Restaurant Information</h2>
+    <p>Restaurant Name: <%= restaurantInfo.restaurant_name %></p>
+    <% if (discount.discount_percentage) { %>
+      <p>Discount Percentage: <%= discount.discount_percentage %> %</p>
+    <% } %>
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->

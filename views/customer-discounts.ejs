@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Discounts</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Optional: Add custom styles here */
+        body {
+            /* background-color: #f8f9fa; */
+            background-image: url("/download (3).jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .discount-item {
+            /* background-color: #fff; */
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Discounts</h1>
+        <!-- Display all customer discounts -->
+        <% discounts.forEach(discount => { %>
+            <div class="discount-item">
+                <p>Discount Percentage: <%= discount.percentage %>%</p>
+                <p>Discount Code: <%= discount.code %></p>
+                <p>Customer Id: <%= discount.customer_id %> </p>
+                <!-- Form to delete the discount -->
+                <form action="/admin/delete-customer-discount" method="POST">
+                    <input type="hidden" name="discountId" value="<%= discount.discount_id %>">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+        <!-- Display success or error messages here -->
+        <% if (typeof success !=='undefined' && success==='customer-discount-deleted' ) { %>
+            <p class="text-success">Customer discount deleted successfully!</p>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: url("/images.jpeg");
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      margin-bottom: 20px; /* Added margin between cards */
+    }
+    .highlighted-name {
+  font-weight: bold;
+  color:blue; /* You can adjust the color as needed */
+}
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/restaurant/all-restaurants-customer"> 
+        <i class="fas fa-home"></i> 
+        <em>Home</em>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><%= restaurant.name %></h1>
+
+    
+    <h2 class="mb-4">Average Score: <%= avgScore %></h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Contact:</strong> <%= restaurant.contact_no %></p>
+        <p><strong>Email:</strong> <%= restaurant.email %></p>
+        <p><strong>Location:</strong> <%= restaurant.location %></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Opening Time:</strong> <%= restaurant.opening_time %></p>
+        <p><strong>Closing Time:</strong> <%= restaurant.closing_time %></p>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Discounts</h2>
+    <ul>
+      <% discounts.forEach(discount=> { %>
+        <li><%= discount.percentage %>% off, max discount: <%= discount.max_discount %></li>
+      <% }); %>
+    </ul>
+
+  
+    <h2 class="mt-4">Reviews</h2>
+    
+
+
+<% if (reviews.length > 0) { %>
+  <ul>
+    <% reviews.forEach(review => { %>
+      <li>
+        <%= review.comment %> - by <span class="highlighted-name"><%= review.customer_name %></span>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No reviews available</p>
+<% } %>
+<a href="/customer/addReview" class="btn btn-primary mt-4">Add Review</a>
+
+    <h2 class="mt-4">Menu</h2>
+
+    <div class="row">
+      <% foods.forEach(food=> { %>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://source.unsplash.com/300x300/?food" class="card-img-top" alt="<%= food.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= food.name %></h5>
+              
+              <a href="/restaurant/food-customer/<%= food.id %>" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+  </div>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Details</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: url("/images.jpeg");
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      margin-bottom: 20px; /* Added margin between cards */
+    }
+    .highlighted-name {
+  font-weight: bold;
+  color:blue; /* You can adjust the color as needed */
+}
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/restaurant/all-restaurants-customer"> <!-- Link to the home page -->
+        <i class="fas fa-home"></i> <!-- Home icon -->
+        <em>Home</em>
+      </a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><%= restaurant.name %></h1>
+
+    <!-- Add this section to display the average score -->
+    <h2 class="mb-4">Average Score: <%= avgScore %></h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Contact:</strong> <%= restaurant.contact_no %></p>
+        <p><strong>Email:</strong> <%= restaurant.email %></p>
+        <p><strong>Location:</strong> <%= restaurant.location %></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Opening Time:</strong> <%= restaurant.opening_time %></p>
+        <p><strong>Closing Time:</strong> <%= restaurant.closing_time %></p>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Discounts</h2>
+    <ul>
+      <% discounts.forEach(discount=> { %>
+        <li><%= discount.percentage %>% off, max discount: <%= discount.max_discount %></li>
+      <% }); %>
+    </ul>
+
+    <!-- Display reviews -->
+    <h2 class="mt-4">Reviews</h2>
+    
+
+<!-- Check if there are reviews available -->
+<% if (reviews.length > 0) { %>
+  <ul>
+    <% reviews.forEach(review => { %>
+      <li>
+        <%= review.comment %> - by <span class="highlighted-name"><%= review.customer_name %></span>
+      </li>
+    <% }); %>
+  </ul>
+<% } else { %>
+  <p>No reviews available</p>
+<% } %>
+<a href="/customer/addReview/<%= restaurant.id %>" class="btn btn-primary mt-4">Add Review</a>
+<a href="/customer/myReviews/<%= restaurant.id%>" class="btn btn-primary mt-4">My Reviews</a>
+
+
+
+    <h2 class="mt-4">Menu</h2>
+
+    <div class="row">
+      <% foods.forEach(food=> { %>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="<%= food.picture_url %>" class="card-img-top" alt="<%= food.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= food.name %></h5>
+              <!-- Add more details about the food item if needed -->
+              <a href="/restaurant/food-customer/<%= food.id %>" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+  </div>
+
+  <!-- Add Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

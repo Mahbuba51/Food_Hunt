@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food Item</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Food Item</h1>
+        <form action="/restaurant/admin/add-food" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" >
+            </div>
+            <div class="form-group">
+                <label for="base_price">Base Price:</label>
+                <input type="number" class="form-control" id="base_price" name="base_price" >
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="variation">Variation:</label>
+                <input type="number" class="form-control" id="variation" name="variation">
+            </div>
+            <div class="form-group">
+                <label for="key_ingredient">Key Ingredient:</label>
+                <input type="text" class="form-control" id="key_ingredient" name="key_ingredient">
+            </div>
+            <div class="form-group">
+                <label for="nutritional_information">Nutritional Information:</label>
+                <input type="text" class="form-control" id="nutritional_information" name="nutritional_information">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Food Item</button>
+        </form>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food Item</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-image: url("/istockphoto-1302652986-612x612.jpg");
+            color: brown;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="mt-5 mb-4">Update Food Item</h1>
+            <form action="/restaurant/admin/update-food/<%= foodId %>" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" >
+                </div>
+                <div class="form-group">
+                    <label for="base_price">Base Price:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control" id="base_price" name="base_price" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="variation">Variation:</label>
+                    <input type="number" class="form-control" id="variation" name="variation">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="key_ingredient">Key Ingredient:</label>
+                    <input type="text" class="form-control" id="key_ingredient" name="key_ingredient">
+                </div>
+                <div class="form-group">
+                    <label for="nutritional_information">Nutritional Information:</label>
+                    <input type="text" class="form-control" id="nutritional_information" name="nutritional_information">
+                </div>
+                <div class="form-group">
+                    <label for="picture_url">Picture URL:</label>
+                    <input type="text" class="form-control" id="picture_url" name="picture_url">
+                </div>
+                <div class="form-group">
+                    <label for="foodType">Food Type:</label>
+                    <select class="form-control" id="foodType" name="foodType" >
+                        <!-- Add options dynamically from the database -->
+                        <% foodTypes.forEach(foodType => { %>
+                            <option value="<%= foodType.id %>"><%= foodType.type_name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Update Food Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

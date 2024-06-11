@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+  padding: 20px;
+  background-image: url("/Screenshot 2024-02-21 010407.png");
+  background-size: 400px; /* Increase the size of the background image */
+  background-repeat: no-repeat;
+  background-position: left 100px; /* Position the background image in the left middle */
+}
+
+    .cart-container {
+      max-width: 600px; /* Adjust the maximum width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 100px;
+    }
+    .cart-item {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+    }
+    .remove-button {
+      margin-top: 5px;
+    }
+    .navbar-brand .fa-home {
+    font-size: 10 em; /* Adjust the size as needed */
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/restaurant/all-restaurants-customer"> <!-- Link to the home page -->
+        <i class="fas fa-home "></i> <!-- Home icon -->
+        <strong>Home</strong>
+      </a>
+    </div>
+  </nav>
+  <div class="container cart-container">
+    <h1 class="mt-4 mb-4">Cart</h1>
+    
+    <ul class="list-group">
+      <% cartItems.forEach(item => { %>
+      <li class="list-group-item cart-item">
+        <div class="row">
+          <div class="col-md-8">
+            <strong>Food Name:</strong> <%= item.food.name %><br>
+            <strong>Base Price:</strong> <%= item.food.base_price %><br>
+          </div>
+          <div class="col-md-4 text-right">
+            <form action="/order/remove-from-cart" method="POST">
+              <input type="hidden" name="food" value="<%= JSON.stringify(item) %>">
+              <button type="submit" class="btn btn-success remove-button">Remove</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+    <form action="/order/remove-all-from-cart" method="POST">
+      <button type="submit" class="btn btn-danger mt-4">Remove All</button>
+    </form>
+    <form action="/order/review" method="GET">
+      <button type="submit" class="btn btn-primary mt-4">Order</button>
+    </form>
+  </div>
+  
+  <!-- Add Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

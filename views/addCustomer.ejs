@@ -1,0 +1,86 @@
+<!-- customer-form.ejs -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Customer</title>
+</head>
+<body>
+    <h1>Add New Customer</h1>
+    <form action="/addCustomer" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="contact_no">Contact Number:</label>
+        <input type="text" id="contact_no" name="contact_no" required>
+        <br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="submit">Add Customer</button>
+    </form>
+</body>
+</html> -->
+<!-- customer-form.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Customer</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('/istockphoto-1302652986-612x612.jpg'); /* Replace 'your-background-image-url.jpg' with the actual image URL */
+            background-size: cover;
+            background-position: center;
+            color:brown; /* Set text color to white for better visibility on a background image */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px; /* Set a maximum width for the form */
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Add New Customer</h1>
+        <form action="/customer/addCustomer" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_no">Contact Number:</label>
+                <input type="text" class="form-control" id="contact_no" name="contact_no" placeholder="Enter Contact No:" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Customer</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

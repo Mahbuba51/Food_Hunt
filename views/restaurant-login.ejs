@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Login</title>
+</head>
+<body>
+  <h1>Restaurant Login</h1>
+  <form action="/restaurant-login" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - FoodHunt</title>
+    <style>
+       
+        body {
+            
+            background: url("/sushi_homepage1 (1).webp") ;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: yellowgreen;
+    color:antiquewhite;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:burlywood;
+}
+
+    </style>
+    
+   
+</head>
+<body>
+    <header>
+       
+        
+    </header>
+    <section class="main-content" >
+        <h2 style="text-align: center;">Welcome to FOOD HUNT</h2>
+        <form action="/restaurant/login" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter email no"><br>
+      
+          <button type="submit">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">
+            Don't have an account? <a href='/restaurant/add-restaurant'>Sign up here</a>
+        </p>
+    </section>
+   
+</body>
+</html>
